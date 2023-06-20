@@ -14,4 +14,7 @@ This repository contains a simple setup script to install a Minecraft: Java Edit
 * Update to the newest Minecraft versions
 * Make the script available for multiple languages.
 
+## How to download the script?
+curl https://raw.githubusercontent.com/Atten007/MinecraftRaspi/main/minecraft_server.sh | bash
+
 Have fun with my Minecraft server setup script!
