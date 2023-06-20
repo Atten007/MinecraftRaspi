@@ -85,4 +85,14 @@ server_jar="minecraft_server.${server_ver}.jar"
 eula_file="eula.txt"
 
 # Server JAR-Datei herunterladen
-wget -O "$server_jar" "https://s3.amazonaws.com/Minecraft.Download
+wget -O "$server_jar" "https://s3.amazonaws.com/Minecraft.Download/versions/${server_ver}/${server_jar}"
+
+# Überprüfen, ob automatische Aktualisierung gewünscht ist
+echo "Möchtest du den Server automatisch aktualisieren? (j/n)"
+read update_choice
+
+if [[ $update_choice == "j" || $update_choice == "J" ]]; then
+    update_server
+else
+    start_server
+fi
