@@ -3,6 +3,7 @@ This repository contains a simple setup script to install a Minecraft: Java Edit
 
 ## Features
 * Daily backups with selectable directory and time.
+* Selectable weekdays for backups.
 * Selectable server version.
 * Selectable server directory.
 * Selectable RAM amount.
