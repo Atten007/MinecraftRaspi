@@ -52,11 +52,13 @@ start_server() {
         echo "Bitte gib den Pfad zum Verzeichnis ein, in dem die Backups gespeichert werden sollen:"
         read backup_dir
 
-        echo "Bitte gib die gewünschte Zeit (im 24-Stunden-Format) für den Neustart des Servers ein (z.B. 03:00):"
-        read restart_time
+        echo "An welchen Wochentagen sollen die Backups erstellt werden?"
+        echo "Bitte gib die gewünschten Wochentage ein (Mo, Di, Mi, Do, Fr, Sa, So)."
+        echo "Trenne die Wochentage mit einem Leerzeichen:"
+        read -a backup_days
 
         # Cron-Job für regelmäßige Backups einrichten
-        cron_job="0 $restart_time * * * $(pwd)/create_backup.sh $backup_dir"
+        cron_job="0 $restart_time * * ${backup_days[*]} $(pwd)/create_backup.sh $backup_dir"
         (crontab -l ; echo "$cron_job") | crontab -
     fi
 
