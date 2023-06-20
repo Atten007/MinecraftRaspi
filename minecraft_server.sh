@@ -68,6 +68,12 @@ start_server() {
 echo "Bitte gib die RAM-Zuweisung für den Server ein (in MB):"
 read ram_allocation
 
+# Überprüfen der Betriebssystem-Architektur
+if [[ $(uname -m) == "i686" || $(uname -m) == "i386" ]]; then
+    echo "32-Bit Betriebssystem erkannt. Die RAM-Zuweisung wird auf 3 GB begrenzt."
+    ram_allocation=$((3*1024))
+fi
+
 # Speicherort des Servers
 echo "Bitte gib den Pfad zum Verzeichnis ein, in dem die Server-Dateien gespeichert werden sollen:"
 read server_dir
