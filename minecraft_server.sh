@@ -18,6 +18,7 @@ update_server() {
 
         # Server stoppen
         screen -S minecraft -X stuff 'stop'$(echo -ne '\r')
+        sleep 5
 
         # Server-Dateien sichern
         create_backup "$backup_dir"
